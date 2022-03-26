@@ -19,4 +19,6 @@
     - [Insomnia (nesse projeto foi utilizado);](https://insomnia.rest/download)
     - [Postman.](https://www.postman.com/)
 
- 
+---
+
+© 2022 Eduarda Matias

@@ -22,9 +22,18 @@
 ---
 # 📖 Conhecimentos abordados no projeto
  - Programação em Java utilizando o Spring;
+ - Métodos HTTPs;
  - Construção do CRUD;
  - Desenvolvimento do back-end de uma aplicação;
  - Construção de uma API RESTful.
+
+---
+
+# 🚀 Links úteis
+- [Tutorial da instalação e configuração do Java;](https://www.youtube.com/watch?v=Cq7gdAVPlF4)
+- [Configurando o Spring;](https://www.youtube.com/watch?v=XnF7-tCxdcU)
+- [Portal Generation.](https://brazil.generation.org/)
+
 
 ---
 © 2022 Eduarda Matias

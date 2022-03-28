@@ -25,7 +25,7 @@ public class TemaController {
 	@Autowired
 	private TemaRepository repository;
 
-	@GetMapping
+	@GetMapping 
 	public ResponseEntity<List<Tema>> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
@@ -44,12 +44,12 @@ public class TemaController {
 	public ResponseEntity<Tema> postTema(@RequestBody Tema tema) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
 	}
-	
+
 	@PutMapping
 	public ResponseEntity<Tema> putTema(@RequestBody Tema tema) {
 		return ResponseEntity.ok(repository.save(tema));
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		repository.deleteById(id);

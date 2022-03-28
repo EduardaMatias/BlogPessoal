@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/* endpoints */
 @RestController
 @RequestMapping("/postagens")
 @CrossOrigin("*")
@@ -25,39 +26,33 @@ public class PostagemController {
 	@Autowired
 	private PostagemRepository repository;
 
-	@GetMapping
+	@GetMapping /* rota padrão */
 	public ResponseEntity<List<Postagem>> GetAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<Postagem> GetById(@PathVariable Long id) {
-		return repository.findById(id)
-				.map(resp -> ResponseEntity.ok(resp))
-				.orElse(ResponseEntity.notFound().build());
+	@GetMapping("/{id}") /* o valor do id será passado na rota */
+	public ResponseEntity<Postagem> GetById(
+			@PathVariable Long id) /* PathVariable indica que um valor será passado pela rota */ {
+		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 
 	@GetMapping("/titulo/{titulo}") /* evita duplicidade */
-	public ResponseEntity<List<Postagem>> 
-	GetByTitulo(@PathVariable String titulo) {
-		return ResponseEntity.ok(repository
-				.findAllByTituloContainingIgnoreCase(titulo));
+	public ResponseEntity<List<Postagem>> GetByTitulo(@PathVariable String titulo) {
+		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 	}
 
 	@PostMapping /* insere valores */
-	public ResponseEntity<Postagem> 
-	postPostagem(@RequestBody Postagem postagem) {
-		return ResponseEntity.status(HttpStatus.CREATED)
+	public ResponseEntity<Postagem> postPostagem(@RequestBody Postagem postagem) {
+		return ResponseEntity.status(HttpStatus.CREATED) /* status 201 - criando um objeto novo no banco de dados */
 				.body(repository.save(postagem));
 	}
 
 	@PutMapping /*
 				 * altera e insere valores, é necessário colocar todos os dados inclusive o id
 				 */
-	public ResponseEntity<Postagem> 
-	putPostagem(@RequestBody Postagem postagem) {
-		return ResponseEntity.status(HttpStatus.OK)
-				.body(repository.save(postagem));
+	public ResponseEntity<Postagem> putPostagem(@RequestBody Postagem postagem) {
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
 	}
 
 	@DeleteMapping("/{id}")

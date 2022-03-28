@@ -25,8 +25,9 @@ public class Tema {
 	private String descricao;
 
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL) /*
-																 * se algo referente a esse tema for alterado, todas as
-																 * postagens que pertencem a esse tema serão alteradas
+																 * cascade: se algo referente a esse tema for alterado,
+																 * todas as postagens que pertencem a esse tema serão
+																 * alteradas
 																 */
 	@JsonIgnoreProperties("tema") /* recursividade */
 	private List<Postagem> postagem;

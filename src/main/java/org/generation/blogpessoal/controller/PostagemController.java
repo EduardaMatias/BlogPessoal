@@ -32,24 +32,32 @@ public class PostagemController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Postagem> GetById(@PathVariable Long id) {
-		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
+		return repository.findById(id)
+				.map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.notFound().build());
 	}
 
 	@GetMapping("/titulo/{titulo}") /* evita duplicidade */
-	public ResponseEntity<List<Postagem>> GetByTitulo(@PathVariable String titulo) {
-		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
+	public ResponseEntity<List<Postagem>> 
+	GetByTitulo(@PathVariable String titulo) {
+		return ResponseEntity.ok(repository
+				.findAllByTituloContainingIgnoreCase(titulo));
 	}
 
 	@PostMapping /* insere valores */
-	public ResponseEntity<Postagem> postPostagem(@RequestBody Postagem postagem) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
+	public ResponseEntity<Postagem> 
+	postPostagem(@RequestBody Postagem postagem) {
+		return ResponseEntity.status(HttpStatus.CREATED)
+				.body(repository.save(postagem));
 	}
 
 	@PutMapping /*
-				 * altera e insere valores, é necessário colocar todo os dados inclusive o id
+				 * altera e insere valores, é necessário colocar todos os dados inclusive o id
 				 */
-	public ResponseEntity<Postagem> putPostagem(@RequestBody Postagem postagem) {
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
+	public ResponseEntity<Postagem> 
+	putPostagem(@RequestBody Postagem postagem) {
+		return ResponseEntity.status(HttpStatus.OK)
+				.body(repository.save(postagem));
 	}
 
 	@DeleteMapping("/{id}")

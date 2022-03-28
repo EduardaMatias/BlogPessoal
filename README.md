@@ -22,7 +22,7 @@
 ---
 # 📖 Conhecimentos abordados no projeto
  - Programação em Java utilizando o Spring;
- - Métodos HTTPs;
+ - Métodos HTTP;
  - Construção do CRUD;
  - Desenvolvimento do back-end de uma aplicação;
  - Construção de uma API RESTful.

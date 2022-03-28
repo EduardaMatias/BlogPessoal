@@ -20,5 +20,11 @@
     - [Postman.](https://www.postman.com/)
 
 ---
+# 📖 Conhecimentos abordados no projeto
+ - Programação em Java utilizando o Spring;
+ - Construção do CRUD;
+ - Desenvolvimento do back-end de uma aplicação;
+ - Construção de uma API RESTful.
 
+---
 © 2022 Eduarda Matias

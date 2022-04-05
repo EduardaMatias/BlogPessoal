@@ -32,8 +32,7 @@ public class PostagemController {
 	}
 
 	@GetMapping("/{id}") /* o valor do id será passado na rota */
-	public ResponseEntity<Postagem> GetById(
-			@PathVariable Long id) /* PathVariable indica que um valor será passado pela rota */ {
+	public ResponseEntity<Postagem> GetById(@PathVariable Long id) /* PathVariable indica que um valor será passado pela rota */ {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 

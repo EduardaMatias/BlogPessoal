@@ -22,10 +22,8 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
 	private String nome;
 	
-	@NotNull
 	@Email
 	private String usuario;
 	

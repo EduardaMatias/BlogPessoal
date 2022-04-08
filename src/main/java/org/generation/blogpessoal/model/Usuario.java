@@ -17,26 +17,40 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "tb_usuario")
 public class Usuario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String nome;
-	
+
 	@Email
 	private String usuario;
-	
+
 	@NotNull
 	private String senha;
-	
+
 	private String foto;
-	
+
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagens;
 
-	
+	/* métodos construtores para testes */
+	public Usuario(Long id, String nome, String usuario, String senha, String foto) {
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+	}
+
+	public Usuario() {
+	} /*
+		 * não é obrigatório passar todos os campos, exemplo: pode testar somente
+		 * usuario e senha
+		 */
+
 	public Long getId() {
 		return id;
 	}
